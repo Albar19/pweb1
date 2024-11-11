@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+    <script>
+function HargaPerKamar(){
+    var jenisKamar = document.getElementById("tipeKamar").value;
+    var harga = 0;
+
+    if(jenisKamar == "Standard"){
+        harga = 300000;
+    } else if(jenisKamar == "Deluxe"){
+        harga = 500000;
+    } else if(jenisKamar == "Family"){
+        harga = 800000;
+    }
+
+    document.getElementById("Harga").value = harga;
+    hitungPembayaran();
+}
+
+function validasi(){
+    var idPemesanan = document.getElementById("Nomer_Identitas").value;
+    if(idPemesanan.length !== 16){
+        alert("Nomer Identitas harus 16 digit");
+        return false;
+    }
+    return true;
+}
+
+function hitungPembayaran(){
+    var harga = document.getElementById("Harga").value;
+    var durasiMenginap = document.getElementById("Durasi_Menginap").value;
+    var termasukBreakfast = document.getElementById("Termasuk_Breakfast").checked;
+    var totalBayar = 0;
+
+    totalBayar = harga * durasiMenginap;
+    if(termasukBreakfast){
+        totalBayar += 80000 * durasiMenginap;
+    }
+    if(durasiMenginap > 3){
+        totalBayar -= totalBayar * 0.10;
+    }
+
+    document.getElementById("Total_Bayar").value = totalBayar;
+}
+
+    function showData(){
+        if(!validasi()){
+            return;
+        }
+
+        var idPemesanan = document.getElementById("Id_Pemesanan").value;
+        var namaPemesan = document.getElementById("Nama_Pemesan").value;
+        var jenisKelamin = document.querySelector('input[name="Jenis_Kelamin"]:checked').value;
+        var nomorIdentitas = document.getElementById("Nomer_Identitas").value;
+        var tipeKamar = document.getElementById("tipeKamar").value;
+        var harga = document.getElementById("Harga").value;
+        var tanggalPesan = document.getElementById("Tanggal_Pesan").value;
+        var durasiMenginap = document.getElementById("Durasi_Menginap").value;
+        var termasukBreakfast = document.querySelector('input[name="Termasuk_Breakfast"]:checked').value;
+    var totalBayar = document.getElementById("Total_Bayar").value;
+
+    alert("Data Pemesanan:\n" +
+          "Id Pemesanan: " + idPemesanan + "\n" +
+          "Nama Pemesan: " + namaPemesan + "\n" +
+          "Jenis Kelamin: " + jenisKelamin + "\n" +
+          "Nomer Identitas: " + nomorIdentitas + "\n" +
+          "Tipe Kamar: " + tipeKamar + "\n" +
+          "Harga: " + harga + "\n" +
+          "Tanggal Pesan: " + tanggalPesan + "\n" +
+          "Durasi Menginap: " + durasiMenginap + "\n" +
+          "Termasuk Breakfast: " + termasukBreakfast + "\n" +
+          "Total Bayar: " + totalBayar);
+}
+    </script>
+</head>
+<body>
+    <form name="form1">
+        <table>
+            <tr>
+                <h1>Pemesanan</h1>
+            </tr>
+            <tr>
+                <td>Id Pemesanan:</td>
+                <td><input type="number" id="Id_Pemesanan" name="Id_Pemesanan"></td>
+            </tr>
+            <tr>
+                <td>Nama Pemesan:</td>
+                <td><input type="text" id="Nama_Pemesan" name="Nama_Pemesan"></td>
+                </tr>
+            <tr>
+                <td>Jenis Kelamin:</td>
+                <td><input type="radio" id="Jenis_Kelamin" name="Jenis_Kelamin" value="Laki-laki">Laki-laki
+                <input type="radio" id="Jenis_Kelamin" name="Jenis_Kelamin" value="Perempuan">Perempuan</td>
+            </tr>
+            <tr>
+                <td>Nomer Identitas:</td>
+                <td><input type="number" id="Nomer_Identitas" name="Nomer_Identitas"></td>
+            </tr>
+            <tr>
+                <td>Tipe Kamar:</td>
+                <td>
+                <select name="tipeKamar" id="tipeKamar" onchange="HargaPerKamar()">
+                    <option value="belum ada yang dipilih">-Pilih-</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Family">Family</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Harga:</td>
+                <td><input type="number" id="Harga" name="Harga" readonly></td>
+            </tr>
+            <tr>
+                <td>Tanggal Pesan:</td>
+                <td><input type="date" id="Tanggal_Pesan" name="Tanggal_Pesan"></td>
+            </tr>
+            <tr>
+                <td>Durasi Menginap:</td>
+                <td><input type="number" id="Durasi_Menginap" name="Durasi_Menginap" onchange="hitungPembayaran()"></td>
+            </tr>
+            <tr>
+                <td>Termasuk Breakfast:</td>
+                <td><input type="checkbox" id="Termasuk_Breakfast" name="Termasuk_Breakfast" value="Ya" onchange="hitungPembayaran()">Ya</td>
+            </tr>
+            <tr>
+                <td>Total Bayar:</td>
+                <td><input type="number" id="Total_Bayar" name="Total_Bayar" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><button name="save" value="simpan" onclick="showData()">SIMPAN</button>
+                <button type="reset" name="batal" value="batal">BATAL</button>
+                </tr>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

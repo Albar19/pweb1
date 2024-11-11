@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tambah Data</title>
+    <style>
+        td {
+            position: relative;
+            text-align: left;
+            vertical-align: top;
+            padding: 2px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin: 4px 0;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function validasiForm() {
+            const form = document.forms["form1"];
+            const id_kamar = form["id_kamar"].value.trim();
+            const gambar_kamar = form["gambar_kamar"].value.trim();
+            const jenis_kamar = form["jenis_kamar"].value;
+            const fasilitas = form["Fasilitas"].value.trim();
+            const harga = form["harga"].value.trim();
+
+            if (id_kamar === "") {
+                alert("Id Kamar harus diisi!");
+                form["id_kamar"].focus();
+                return false;
+            }
+            if (gambar_kamar === "") {
+                alert("Gambar Kamar harus diisi!");
+                form["gambar_kamar"].focus();
+                return false;
+            }
+            if (jenis_kamar === "0") {
+                alert("Jenis Kamar harus dipilih!");
+                form["jenis_kamar"].focus();
+                return false;
+            }
+            if (fasilitas === "") {
+                alert("Fasilitas harus diisi!");
+                form["Fasilitas"].focus();
+                return false;
+            }
+            if (harga === "") {
+                alert("Harga harus diisi!");
+                form["harga"].focus();
+                return false;
+            }
+
+            alert("Data berhasil ditambahkan!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Form Tambah Data</h1>
+    <form name="form1" onsubmit="return validasiForm()">
+        <table border="0">
+            <tr>
+                <td>Id Kamar</td>
+                <td><input type="text" name="id_kamar" placeholder="Masukkan ID Kamar"></td>
+            </tr>
+            <tr>
+                <td>Gambar Kamar</td>
+                <td><input type="file" name="gambar_kamar"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kamar</td>
+                <td>
+                    <select name="jenis_kamar">
+                        <option value="0">--Pilih Jenis Kamar--</option>
+                        <option value="1">Standar</option>
+                        <option value="2">Deluxe</option>
+                        <option value="3">Premium</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Fasilitas</td>
+                <td>
+                    <textarea id="Fasilitas" name="Fasilitas" rows="4" cols="50" placeholder="Masukkan fasilitas kamar"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Harga</td>
+                <td><input type="number" name="harga" placeholder="Masukkan harga kamar"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Tambah</button></td>
+                <td><button type="reset">Batal</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

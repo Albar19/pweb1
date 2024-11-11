@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floating Input Labels</title>
+  <style>
+    /* Gaya umum untuk form */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .form-group {
+      position: relative;
+      margin: 20px 0;
+      width: 300px;
+    }
+
+    /* Input field */
+    input {
+      width: 100%;
+      padding: 10px 10px 10px 5px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      background: none;
+    }
+
+    /* Label */
+    label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #999;
+      transition: 0.3s ease;
+      pointer-events: none;
+    }
+
+    /* Saat input terisi atau fokus */
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      top: -15px;
+      left: 5px;
+      font-size: 12px;
+      color: #007BFF; /* Warna biru */
+    }
+
+    /* Efek border saat fokus */
+    input:focus {
+      border-color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="form-group">
+      <input type="text" id="name" placeholder=" " required>
+      <label for="name">Name</label>
+    </div>
+
+    <div class="form-group">
+      <input type="email" id="email" placeholder=" " required>
+      <label for="email">Email</label>
+    </div>
+  </form>
+</body>
+</html>

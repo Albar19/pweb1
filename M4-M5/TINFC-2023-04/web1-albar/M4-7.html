@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <!-- javascript -->
+     <script>
+        function showData(){
+            nm = document.getElementById("nama").value;
+            jk = document.getElementById("jk").value;
+            document.getElementById("hasil").innerHTML = "<strong>Nama : </strong>" + nm + "<br><strong>Alamat: </strong>" + jk;
+        }
+     </script>
+</head>
+ <h1>Form Input</h1>
+ <form name="form1">
+    <table border = "1">
+        <tr>
+            <td><label>Nama</label></td>
+            <td><input type="text" name="nama" id="nama" /></td>
+        </tr>
+        <tr>
+            <td><label>Jenis Kelamin</label></td>
+            <td>
+                <input type="radio" name="jk" id="jk" value="L" />Laki-laki
+                <input type="radio" name="jk" id="jk" value="P" />Perempuan
+            </td>
+        </tr>
+            <td colspan="2">
+                <button type="button" name="tampil" value="tampil" value="tampil"
+                onclick="showData()">Tampilkan</button>
+                <button type="reset" name="batal" value="batal">Batal</button>
+            </td>
+    </table>
+ </form>
+ <div id="hasil"></div>
+<body>
+    
+</body>
+</html>

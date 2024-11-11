@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="2"><h3>Form Pemesanan</h3></td>
+        </tr>
+        <tr>
+            <td><label for="Id_Pemesanan">Id Pemesanan:</label></td>
+            <td>
+                <input type="number" id="Id_Pemesanan" name="Id_Pemesanan" pattern="[0-9]" required>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: left;">
+            <label for="Gambar1">Kamar STANDAR:</label>
+            <input type="checkbox" id="Gambar1" name="Gambar1" value="Gambar1">
+            <img src="D:\S3\html\Img\ciputra-deluxe-room.jpeg" alt="Gambar 1" width="100" height="80">
+            <label for="Gambar2">Kamar DELUXE:</label>
+            <input type="checkbox" id="Gambar2" name="Gambar2" value="Gambar2">
+            <img src="D:\S3\html\Img\8eb4e875-5dd0-4d88-9ff5-5c8ef4989b9c.jpg" alt="Gambar 2" width="100" height="80">
+            <label for="Gambar3">Kamar FAMILY:</label>
+            <input type="checkbox" id="Gambar3" name="Gambar3" value="Gambar3">
+            <img src="D:\S3\html\Img\DSC01847-scaled.jpg" alt="Gambar 3" width="100" height="80">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Nama_Pemesan">Nama Pemesan:</label></td>
+            <td>
+                <input type="text" id="Nama_Pemesan" name="Nama_Pemesan" required>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Nomer_Identitas">Nomer Identitas:</label></td>
+            <td>
+                <input type="number" id="Nomer_Identitas" name="Nomer_Identitas" pattern="[0-9]" required>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="prodi">Tipe Kamar:</label></td>
+            <td>
+                <select name="prodi" id="prodi">
+                    <option value="-" selected>--Pilih--</option>
+                    <option value="STANDAR">STANDAR</option>
+                    <option value="DELUXE">DELUXE</option>
+                    <option value="FAMILY">FAMILY</option>
+                </select>
+            </td>
+        <tr>
+            <td><label for="Fasilitas">Fasilitas:</label></td>
+            <td>
+                <select name="Fasilitas" id="Fasilitas">
+                    <option value="-" selected>--Pilih--</option>
+                    <option value="2_KASUR">2 KASUR</option>
+                    <option value="KOLAM_RENANG">Kolam Renang</option>
+                    <option value="GYM">GYM</option>
+                </select>
+            </td>
+        <tr>
+        <tr>
+            <td><label for="Harga_Weekend">Harga Weekend:</label></td>
+            <td>
+                <input type="number" id="Harga_Weekend" name="Harga_Weekend" value="500000" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Harga_Weekday">Harga Weekday:</label></td>
+            <td>
+                <input type="number" id="Harga_Weekday" name="Harga_Weekday" value="800000" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Kuota">Kuota:</label></td>
+            <td>
+                <input type="number" id="Kuota" name="Kuota" value="30" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Jam_Buka">Jam Buka:</label></td>
+            <td>
+                <input type="time" id="Jam_Buka" name="Jam_Buka" value="07:00" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Jam_Tutup">Jam Tutup:</label></td>
+            <td>
+                <input type="time" id="Jam_Tutup" name="Jam_Tutup" value="21:00" readonly>
+            </td>
+        </tr>        
+        <tr>
+            <td><label for="Harga">Harga:</label></td>
+            <td>
+                <input type="number" id="Harga" name="Harga" pattern="[0-9]" required>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="tgl">Tanggal:</label></td>
+            <td>
+                <input type="date" id="tgl" name="tgl" required/>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Durasi_Menginap">Durasi Menginap:</label></td>
+            <td>
+                <input type="number" id="Durasi_Menginap" name="Durasi_Menginap" pattern="[0-9]" required>Hari
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Termasuk_Breakfast:">Termasuk Breakfast:</label></td>
+            <td>
+                <input type="checkbox" id="Termasuk_Breakfast" name="Termasuk_Breakfast" value="Ya" required>Ya
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Total_Bayar">Total Bayar</label></td>
+            <td>
+                <input type="number" id="Total_Bayar" name="Total_Bayar" pattern="[0-9]" required>
+            </td>
+        </tr>
+
+        <td colspan="2" style="text-align: center;">
+        <div>
+            <button class="btn-simpan" name="save" value="simpan">SIMPAN</button>
+            <button class="btn-batal" type="reset" name="cancel" value="batal">BATAL</button>
+        </div>
+        </td>
+    </table>
+</body>
+</html>

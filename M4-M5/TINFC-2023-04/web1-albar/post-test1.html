@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculation</title>
+    <script type="text/javascript">
+        function hitungTunjangan() {
+            var golongan = document.getElementById("golongan").value;
+            var anak = parseInt(document.getElementById("anak").value) || 0;
+
+            var gajiBersih = { "I": 250000, "II": 300000, "III": 350000 };
+            var tunjangan = { "I": 0.05, "II": 0.10, "III": 0.15 };
+
+            var gajiPokok = gajiBersih[golongan];
+            var tunjangan = gajiPokok * tunjangan[golongan];
+            var gajiBersih = gajiPokok + tunjangan * anak;
+
+            document.getElementById("gajiPokok").value = gajiPokok;
+            document.getElementById("tunjangan").value = tunjangan * anak;
+            document.getElementById("gajiBersih").value = gajiBersih;
+        }
+
+        function resetForm() {
+            document.getElementById("salaryForm").reset();
+        }
+    </script>
+</head>
+<body>
+    <h2>PERHITUNGAN GAJI</h2>
+    <form id="salaryForm">
+        <table border="1" cellpadding="10">
+            <tr>
+                <td><label for="golongan">Golongan:</label></td>
+                <td>
+                    <select id="golongan" name="golongan">
+                        <option value="I">I</option>
+                        <option value="II">II</option>
+                        <option value="III">III</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="anak">Jumlah Anak:</label></td>
+                <td><input type="text" id="anak" name="anak" size="10" maxlength="10"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left;">
+                    <input type="button" name="hitung" value="Hitung" onclick="hitungTunjangan()">
+                    <input type="reset" name="batal" value="Cancel" onclick="resetForm()">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="gajiPokok">Gaji Pokok:</label></td>
+                <td><input type="text" id="gajiPokok" name="gaji" readonly></td>
+            </tr>
+            <tr>
+                <td><label for="tunjangan">Tunjangan:</label></td>
+                <td><input type="text" id="tunjangan" name="tunjangan" readonly></td>
+            </tr>
+            <tr>
+                <td><label for="gajiBersih">Total Bersih:</label></td>
+                <td><input type="text" id="gajiBersih" name="gajiBersih" readonly></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <style>
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    .gallery-item {
+      width: 30%; /* Adjust as needed for desired layout */
+      margin: 10px;
+      border: 1px solid #ddd;
+      padding: 5px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Optional: Responsive image cropping (consider using media queries) */
+    .gallery-item img {
+      display: block; /* Makes image a block-level element */
+      overflow: hidden; /* Crops overflowing content */
+    }
+
+    .gallery-item p {
+      text-align: center;
+      font-style: italic;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="D:\S3\html\Img\8eb4e875-5dd0-4d88-9ff5-5c8ef4989b9c.jpg" alt="Image 1">
+      <p>Image Description 1</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="D:\S3\html\Img\ciputra-deluxe-room.jpeg" alt="Image 2">
+      <p>Image Description 2</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="D:\S3\html\Img\DSC01847-scaled.jpg" alt="Image 3">
+      <p>Image Description 3</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="D:\S3\html\Img\ciputra-deluxe-room.jpeg" alt="Image 4">
+      <p>Image Description 4</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="D:\S3\html\Img\DSC01847-scaled.jpg" alt="Image 5">
+      <p>Image Description 5</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="D:\S3\html\Img\8eb4e875-5dd0-4d88-9ff5-5c8ef4989b9c.jpg" alt="Image 6">
+      <p>Image Description 6</p>
+    </div>
+  </div>
+</body>
+</html>

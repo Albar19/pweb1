@@ -1,0 +1,12 @@
+<div id="fakultas">fkom</div>
+<input type="text" id="university" value="uniku">
+<button id="changeButton">Ubah Isi</button>
+
+<script>
+    $(document).ready(function() {
+        $("#changeButton").click(function() {
+            $("#fakultas").text("Fakultas Ilmu Komputer");
+            $("#university").val("Universitas Kuningan"); 
+        });
+    });
+</script>
