@@ -23,8 +23,8 @@
         }
 
         function validasiIdPemesan() {
-            var idPemesan = $("#idPemesan").val();
-            if (idPemesan < 1 || idPemesan > 10) {
+            var idPemesan = parseInt($("#idPemesan").val(), 10);
+            if (isNaN(idPemesan) || idPemesan < 1 || idPemesan > 10) {
                 alert("Id Pemesan harus antara 1 sampai 10.");
                 return false;
             }
