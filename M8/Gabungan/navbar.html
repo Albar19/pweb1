@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap-grid.min.css"/>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #dddddd;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding:
+   8px;
+}
+
+ul ul {
+    display: none;
+    position: absolute;
+    background-color: #dddddd;
+}
+
+ul li:hover > ul {
+    display: block;
+}
+
+ul ul li {
+    float: none;
+}
+</style>
+</head>
+<body>
+
+
+    <ul>
+        <li><a>Website Sekolah Ku</a></li>
+        <li><a>Beranda</a></li>
+        <li>
+            <a>Profil</a>
+            <ul>
+                <li><a>Visi</a></li>
+                <li><a>Misi</a></li>
+                <li><a>Struktur Organisasi</a></li>
+            </ul>
+        </li>
+        <li><a>Pendaftaran Siswa Baru</a></li>
+    </ul>
+
+</body>
+</html>

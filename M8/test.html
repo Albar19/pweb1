@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Hotel</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        nav {
+            text-align: left;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #ddd;
+        }
+        nav ul li:hover > ul {
+            display: block;
+        }
+        nav ul li ul li {
+            display: block;
+            margin: 0;
+            white-space: nowrap;
+        }
+        nav ul li ul li ul {
+            left: 100%;
+            top: 0;
+            display: none;
+        }
+        nav ul li ul li:hover > ul {
+            display: block;
+        }
+        nav ul li ul li a {
+            display: block;
+            padding: 5px 15px;
+            text-decoration: none;
+            color: #000;
+        }
+        nav ul li ul li a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <!--navbar-->
+    <header>
+        <h1 style="text-align: left;">BEST HOTEL</h1>
+    </header>
+    <!--end navbar-->
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#kamar">Kamar</a></li>
+            <li><a href="#fasilitas">Fasilitas</a>
+                <ul>
+                    <li><a href="#petualangan">Petualangan Alam</a></li>
+                    <li><a href="#kolam">Kolam Renang</a>
+                        <ul>
+                            <li><a href="#sumber-air">Sumber Air Panas</a></li>
+                            <li><a href="#anak-dewasa">Kolam Renang Anak & Dewasa</a>
+                                <ul>
+                                    <li><a href="#reguler">Reguler</a></li>
+                                    <li><a href="#premium">Premium</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#kebugaran">Pusat Kebugaran</a></li>
+                    <li><a href="#ruang-rapat">Ruang Rapat</a></li>
+                </ul>
+            </li>
+            <li><a href="#pesan">Pesan Sekarang</a></li>
+        </ul>
+    </nav>
+    <!-- End Navigation Menu -->
+
+    <!-- Leftbar -->
+    
+    <!-- End Leftbar -->
+
+    <!--footer-->
+    <footer>
+        <p>&copy; 2024 Best Hotel. Semua Hak Dilindungi.</p>
+    </footer>
+    <!--end footer-->
+</body>
+</html>
