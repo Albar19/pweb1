@@ -164,10 +164,11 @@
             margin-top: 20px;
         }
 
-        .gender-options {
+        .gender-options, .breakfast-option {
             display: flex;
             justify-content: flex-start;
             gap: 20px;
+            align-items: center;
         }
     </style>
 </head>
@@ -229,7 +230,7 @@
             </tr>
             <tr>
                 <td>Termasuk Breakfast</td>
-                <td>
+                <td class="breakfast-option">
                     <input type="checkbox" id="TermasukBreakfast" onchange="hitungPembayaran()">
                     <label for="TermasukBreakfast">Ya</label>
                 </td>
