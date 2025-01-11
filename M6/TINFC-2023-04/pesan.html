@@ -22,13 +22,26 @@
             hitungPembayaran();
         }
 
-        function validasi() {
+        function validasiIdPemesan() {
+            var idPemesan = $("#idPemesan").val();
+            if (idPemesan < 1 || idPemesan > 10) {
+                alert("Id Pemesan harus antara 1 sampai 10.");
+                return false;
+            }
+            return true;
+        }
+
+        function validasiNomorIdentitas() {
             var NomorIdentitas = $("#NomorIdentitas").val();
             if (!/^\d{16}$/.test(NomorIdentitas)) {
                 alert("Nomor identitas harus terdiri dari 16 digit angka.");
                 return false;
             }
             return true;
+        }
+
+        function validasi() {
+            return validasiIdPemesan() && validasiNomorIdentitas();
         }
 
         function hitungPembayaran() {
@@ -42,7 +55,7 @@
             }
 
             if (durasi > 3) {
-                TotalBayar *= 0.10;
+                TotalBayar *= 0.9; // Diskon 10%
             }
 
             $("#TotalBayar").val(TotalBayar);
@@ -62,9 +75,10 @@
             var TanggalPesan = $("#TanggalPesan").val();
             var DurasiMenginap = $("#DurasiMenginap").val();
             var TermasukBreakfast = $("#TermasukBreakfast").prop("checked") ? "Ya" : "Tidak";
-            var TotalBayar = $("#TotalBayar").val();
+            var TotalBayar = parseInt($("#TotalBayar").val());
             var diskon = DurasiMenginap > 3 ? 10 : 0;
             var potongan = TotalBayar * diskon / 100;
+            var TotalBayarSetelahDiskon = TotalBayar - potongan;
 
             $("#Container").html(
                 `<h1>Data Pemesanan</h1>
@@ -81,12 +95,13 @@
                     <tr><td>Total Bayar :</td><td>${TotalBayar}</td></tr>
                     <tr><td>Diskon :</td><td>${diskon}%</td></tr>
                     <tr><td>Potongan :</td><td>${potongan}</td></tr>
-                    <tr><td>Total Bayar Setelah Diskon :</td><td>${TotalBayar - potongan}</td></tr>
+                    <tr><td>Total Bayar Setelah Diskon :</td><td>${TotalBayarSetelahDiskon}</td></tr>
                 </table>`
             );
         }
     </script>
     <style>
+        /* Gaya sama seperti yang Anda gunakan */
         body {
             display: flex;
             justify-content: center;
@@ -125,10 +140,6 @@
             vertical-align: top;
         }
 
-        label {
-            margin-bottom: 5px;
-        }
-
         input, select, button {
             padding: 8px;
             border: none;
@@ -150,16 +161,6 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: gray;
-        }
-
-        .inline-input {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         #Container {
             margin-top: 20px;
         }
@@ -172,7 +173,7 @@
         <table>
             <tr>
                 <td><label for="idPemesan">Id Pemesan</label></td>
-                <td><input type="number" id="idPemesan" name="idPemesan" min="1" max="10" required></td>
+                <td><input type="number" id="idPemesan" name="idPemesan" min="1" max="10" placeholder="1-10" required></td>
             </tr>
             <tr>
                 <td><label for="NamaPemesan">Nama Pemesan</label></td>
@@ -181,7 +182,7 @@
             <tr>
                 <td>Jenis Kelamin</td>
                 <td>
-                    <div class="inline-input">
+                    <div>
                         <input type="radio" name="jenisKelamin" id="Laki" value="Laki-laki" required>
                         <label for="Laki">Laki-laki</label>
                         <input type="radio" name="jenisKelamin" id="Perempuan" value="Perempuan">
@@ -191,7 +192,7 @@
             </tr>
             <tr>
                 <td><label for="NomorIdentitas">Nomor Identitas</label></td>
-                <td><input type="number" id="NomorIdentitas" onchange="validasi()" name="NomorIdentitas" required></td>
+                <td><input type="text" id="NomorIdentitas" pattern="\d{16}" onchange="validasiNomorIdentitas()" name="NomorIdentitas" required></td>
             </tr>
             <tr>
                 <td><label for="kamarHotel">Tipe Kamar</label></td>
@@ -214,14 +215,14 @@
             </tr>
             <tr>
                 <td><label for="DurasiMenginap">Durasi Menginap</label></td>
-                <td class="inline-input">
+                <td>
                     <input type="number" id="DurasiMenginap" min="1" max="30" onchange="hitungPembayaran()" required>
                     <span>Hari</span>
                 </td>
             </tr>
             <tr>
                 <td>Termasuk Breakfast</td>
-                <td class="inline-input">
+                <td>
                     <input type="checkbox" id="TermasukBreakfast" onchange="hitungPembayaran()">
                     <label for="TermasukBreakfast">Ya</label>
                 </td>
