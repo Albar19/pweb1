@@ -81,22 +81,24 @@
             var TotalBayarSetelahDiskon = TotalBayar - potongan;
 
             $("#Container").html(
-                `<h1>Data Pemesanan</h1>
-                <table>
-                    <tr><td>Id Pemesan :</td><td>${idPemesan}</td></tr>
-                    <tr><td>Nama Pemesan :</td><td>${NamaPemesan}</td></tr>
-                    <tr><td>Jenis Kelamin :</td><td>${jenisKelamin}</td></tr>
-                    <tr><td>Nomor Identitas :</td><td>${NomorIdentitas}</td></tr>
-                    <tr><td>Tipe Kamar :</td><td>${kamarHotel}</td></tr>
-                    <tr><td>Harga :</td><td>${Harga}</td></tr>
-                    <tr><td>Tanggal Pesan :</td><td>${TanggalPesan}</td></tr>
-                    <tr><td>Durasi Menginap :</td><td>${DurasiMenginap} hari</td></tr>
-                    <tr><td>Termasuk Breakfast :</td><td>${TermasukBreakfast}</td></tr>
-                    <tr><td>Total Bayar :</td><td>${TotalBayar}</td></tr>
-                    <tr><td>Diskon :</td><td>${diskon}%</td></tr>
-                    <tr><td>Potongan :</td><td>${potongan}</td></tr>
-                    <tr><td>Total Bayar Setelah Diskon :</td><td>${TotalBayarSetelahDiskon}</td></tr>
-                </table>`
+                `<div class="blur-background">
+                    <h1>Data Pemesanan</h1>
+                    <table>
+                        <tr><td>Id Pemesan :</td><td>${idPemesan}</td></tr>
+                        <tr><td>Nama Pemesan :</td><td>${NamaPemesan}</td></tr>
+                        <tr><td>Jenis Kelamin :</td><td>${jenisKelamin}</td></tr>
+                        <tr><td>Nomor Identitas :</td><td>${NomorIdentitas}</td></tr>
+                        <tr><td>Tipe Kamar :</td><td>${kamarHotel}</td></tr>
+                        <tr><td>Harga :</td><td>${Harga}</td></tr>
+                        <tr><td>Tanggal Pesan :</td><td>${TanggalPesan}</td></tr>
+                        <tr><td>Durasi Menginap :</td><td>${DurasiMenginap} hari</td></tr>
+                        <tr><td>Termasuk Breakfast :</td><td>${TermasukBreakfast}</td></tr>
+                        <tr><td>Total Bayar :</td><td>${TotalBayar}</td></tr>
+                        <tr><td>Diskon :</td><td>${diskon}%</td></tr>
+                        <tr><td>Potongan :</td><td>${potongan}</td></tr>
+                        <tr><td>Total Bayar Setelah Diskon :</td><td>${TotalBayarSetelahDiskon}</td></tr>
+                    </table>
+                </div>`
             );
         }
     </script>
@@ -170,6 +172,15 @@
             gap: 20px;
             align-items: center;
         }
+
+        .blur-background {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -179,7 +190,7 @@
         <table>
             <tr>
                 <td><label for="idPemesan">Id Pemesan</label></td>
-                <td><input type="number" id="idPemesan" name="idPemesan" min="1" max="10" required></td>
+                <td><input type="number" id="idPemesan" name="idPemesan" required></td>
             </tr>
             <tr>
                 <td><label for="NamaPemesan">Nama Pemesan</label></td>
